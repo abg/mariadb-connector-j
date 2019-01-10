@@ -340,13 +340,6 @@ public abstract class AbstractConnectProtocol implements Protocol {
   }
 
   private SSLSocketFactory getSslSocketFactory() throws SQLException {
-    if (!options.trustServerCertificate
-        && options.serverSslCert == null
-        && options.trustStore == null
-        && options.keyStore == null) {
-      return (SSLSocketFactory) SSLSocketFactory.getDefault();
-    }
-
     TrustManager[] trustManager = null;
     KeyManager[] keyManager = null;
 
